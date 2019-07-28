@@ -9,11 +9,11 @@ import java.io.ObjectOutputStream;
 import objectCreation.Address;
 import objectCreation.Employee;
 
-public class DeppCopyUsingInMemorySerialization {
+public class DeepCopyUsingInMemorySerialization {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, CloneNotSupportedException{
 		
-		Employee employee = createEmployeeFactory();
+		Employee employee = createEmployeeUsingFactory();
 
 		Employee shallowCopiedEmployee = (Employee) employee.clone();
 		
@@ -26,6 +26,7 @@ public class DeppCopyUsingInMemorySerialization {
 		System.out.println("Now PostCode in original: "+employee.getEmpAddress().getPostCode());
 
 		
+                employee = createEmployeeUsingFactory();      
 		System.out.println("*******Properties of deep copied employee object***********");
 		Employee deepCopiedEmployee = serializeAndDeSerializeObject(employee);
 		System.out.println("Name:"+deepCopiedEmployee.getEmpName());
@@ -37,7 +38,7 @@ public class DeppCopyUsingInMemorySerialization {
 		
 	}
 	
-	private static Employee createEmployeeFactory(){
+	private static Employee createEmployeeUsingFactory(){
 		Employee employee = new Employee();
 		employee.setEmpName("Name");
 		employee.setEmpAge(40);

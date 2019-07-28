@@ -15,7 +15,7 @@ public class DeepCopyUsingSerializationUtils {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, CloneNotSupportedException{
 		
-		Employee employee = createEmployeeFactory();
+		Employee employee = createEmployeeUsingFactory();
 
 		Employee shallowCopiedEmployee = (Employee) employee.clone();
 		
@@ -28,7 +28,8 @@ public class DeepCopyUsingSerializationUtils {
 		System.out.println("Now PostCode in original: "+employee.getEmpAddress().getPostCode());
 
 		
-		System.out.println("*******Properties of deep copied employee object***********");
+                employee = createEmployeeUsingFactory();
+		System.out.println("\n\n*******Properties of deep copied employee object***********");
 		Employee deepCopiedEmployee = SerializationUtils.clone(employee);
 		System.out.println("Name:"+deepCopiedEmployee.getEmpName());
 		System.out.println("Age:"+deepCopiedEmployee.getEmpAge());		
@@ -39,7 +40,7 @@ public class DeepCopyUsingSerializationUtils {
 		
 	}
 	
-	private static Employee createEmployeeFactory(){
+	private static Employee createEmployeeUsingFactory(){
 		Employee employee = new Employee();
 		employee.setEmpName("Name");
 		employee.setEmpAge(40);
