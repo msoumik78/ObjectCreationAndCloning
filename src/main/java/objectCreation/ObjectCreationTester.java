@@ -31,7 +31,7 @@ public class ObjectCreationTester {
 			employees[empCount].setEmpDesignation("Designation" + empCount);
 		}
 		long endTime = System.currentTimeMillis();
-		System.out.println("Time taken(in ms) to create 10,000 objects using new operator : " + (endTime - startTime));
+		System.out.println("Time taken(in ms) to create " + empListSize +" objects using new operator : " + (endTime - startTime));
 	}
 
 	private static void testObjectCreationUsingCloning() throws CloneNotSupportedException {
@@ -56,7 +56,7 @@ public class ObjectCreationTester {
 		}
 
 		long endTime = System.currentTimeMillis();
-		System.out.println("Time taken(in ms) to create 10,000 objects using cloning : " + (endTime - startTime));
+		System.out.println("Time taken(in ms) to create "+ empListSize +" objects using cloning : " + (endTime - startTime));
 	}
 	
 		
@@ -84,7 +84,7 @@ public class ObjectCreationTester {
 			employees[empCount].setEmpDesignation("Designation" + empCount);
 		}
 		long endTime = System.currentTimeMillis();
-		System.out.println("Time taken(in ms) to create 10,000 objects using reflection : " + (endTime - startTime));
+		System.out.println("Time taken(in ms) to create " + empListSize +" objects using reflection : " + (endTime - startTime));
 		
 	}
 
